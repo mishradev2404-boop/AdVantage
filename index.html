@@ -1,0 +1,748 @@
+<html lang="en" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">AdVantage Media | Specialist LinkedIn Advertising Agency</title>
+    
+    <script src="https://cdn.tailwindcss.com/3.4.17" vid="5"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" vid="6">
+    <style vid="7">
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        :root {
+            --primary: #0A66C2;       
+            --primary-dark: #004182;  
+            --surface-light: #F3F6F8; 
+            --surface-white: #FFFFFF;
+            --text-main: #191919;     
+            --text-secondary: #5E666E;
+            --border: #E0E0E0;
+            --container-width: 1180px;
+            --header-height: 80px;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --ease: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--surface-white);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            font-size: revert; 
+            margin: revert;
+        }
+        button {
+            background-color: transparent; 
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 24px; 
+            cursor: pointer;
+            transition: all 0.2s var(--ease);
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(10, 102, 194, 0.25);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(10, 102, 194, 0.05);
+        }
+
+        
+        header.main-header {
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        
+        .container-wide {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .gradient-hero {
+            background: radial-gradient(circle at 100% 0%, rgba(10, 102, 194, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 0% 100%, rgba(10, 102, 194, 0.05) 0%, transparent 40%);
+        }
+        .insight-card {
+            background: var(--surface-light);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 32px;
+        }
+        .stat-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease;
+        }
+        .stat-box:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .quote-block {
+            font-size: 1.25rem;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--primary-dark);
+            border-left: 4px solid var(--primary);
+            padding-left: 24px;
+            margin: 40px 0;
+            line-height: 1.6;
+        }
+        .format-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            background: rgba(10, 102, 194, 0.1);
+            color: var(--primary);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+        .blue-box {
+            background-color: var(--primary-dark);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            margin: 48px 0;
+        }
+
+        
+        .hero {
+            padding-top: calc(var(--header-height) + 80px);
+            padding-bottom: 80px;
+            background: radial-gradient(circle at 100% 0%, rgba(10, 102, 194, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 0% 100%, rgba(10, 102, 194, 0.05) 0%, transparent 40%);
+        }
+        .hero h1 { font-size: 4rem; letter-spacing: -0.04em; margin-bottom: 24px; color: var(--text-main); }
+        .hero p.subhead { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 650px; line-height: 1.6; }
+        
+        .services, .story, .testimonials, .res-hero, .contact-hero {
+            padding: 100px 0;
+        }
+        .res-hero {
+            padding-top: calc(var(--header-height) + 80px);
+            padding-bottom: 60px;
+            text-align: center;
+        }
+        .res-hero h1 { font-size: 3.5rem; margin-bottom: 16px; }
+
+        
+        .filter-bar {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            background: white;
+            position: sticky;
+            top: var(--header-height);
+            z-index: 900;
+        }
+        .filter-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .filter-btn {
+            padding: 8px 20px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;
+            background: var(--surface-light); color: var(--text-secondary);
+            border: 1px solid transparent; cursor: pointer; transition: all 0.2s;
+        }
+        .filter-btn.active { background: var(--primary); color: white; }
+        
+        .res-grid {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .playbook-full {
+            grid-column: 1 / -1;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            width: 100%;
+        }
+        .playbook-section {
+            padding: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+        .bonus-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15); color: white;
+            padding: 4px 14px; border-radius: 4px;
+            font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+        
+        
+        .reader-page { background-color: #fff; min-height: 100vh; }
+        .reader-hero {
+            padding: 80px 0 100px; color: white; text-align: center;
+            background: linear-gradient(135deg, #00366d 0%, #0A66C2 100%);
+        }
+        .reader-container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+        .reader-content {
+            margin-top: -60px; background: white; border-radius: var(--radius-md);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08); border: 1px solid var(--border);
+            overflow: hidden; margin-bottom: 80px;
+        }
+        .reader-body { padding: 60px; }
+        
+        
+        .contact-form-container {
+            background: white; padding: 48px; border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06); border: 1px solid var(--border);
+        }
+        .form-input {
+            width: 100%; padding: 12px; border: 1px solid var(--border);
+            border-radius: var(--radius-sm); font-family: inherit;
+        }
+    </style>
+</head>
+<body vid="8">
+
+    
+    <div id="page-home" class="page active" vid="9">
+        <header class="main-header" vid="10">
+            <div class="container nav-content" vid="11">
+                <div class="logo" onclick="showPage('page-home')" style="cursor: pointer;" vid="12">
+                    <div class="logo-icon" vid="13"></div>
+                    AdVantage
+                </div>
+                <nav class="nav-links" vid="14">
+                    <a href="#" onclick="showPage('page-services'); return false;" vid="15">Services</a>
+                    <a href="#" onclick="showPage('page-story'); return false;" vid="16">Our Story</a>
+                    <a href="#" onclick="showPage('page-resources'); return false;" vid="17">Resources</a>
+                    <a href="#" onclick="showPage('page-contact'); return false;" vid="18">Contact</a>
+                </nav>
+                <button onclick="showPage('page-contact')" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;" vid="19">Get a Free Audit</button>
+            </div>
+        </header>
+
+        <section class="hero" vid="20">
+            <div class="container hero-content" vid="21">
+                <h1 vid="22">Your Competitors Are Already on LinkedIn. Let's Make Sure You're Winning.</h1>
+                <p class="subhead" vid="23">We live and breathe LinkedIn ads so you don't have to. Expect sharp targeting, creative that actually converts, and reporting that tells the full story.</p>
+                <div class="hero-actions" vid="24">
+                    <button onclick="showPage('page-contact')" class="btn btn-primary" vid="25">Schedule a Free Consultation</button>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="services" style="padding: 60px 0; background: var(--surface-light);" vid="26">
+            <div class="container" style="text-align:center;" vid="27">
+                <h2 style="font-size:2.5rem; margin-bottom:20px;" vid="28">What We Do</h2>
+                <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align:left;" vid="29">
+                    <div class="stat-box" vid="30"><h3 vid="31">Strategy</h3><p vid="32">Full funnel LinkedIn strategy.</p><button onclick="showPage('page-services')" class="btn btn-secondary" style="margin-top:10px;" vid="33">Learn More</button></div>
+                    <div class="stat-box" vid="34"><h3 vid="35">Reporting</h3><p vid="36">Clear ROI attribution.</p><button onclick="showPage('page-services')" class="btn btn-secondary" style="margin-top:10px;" vid="37">Learn More</button></div>
+                    <div class="stat-box" vid="38"><h3 vid="39">Resources</h3><p vid="40">Playbooks &amp; Benchmarks.</p><button onclick="showPage('page-resources')" class="btn btn-secondary" style="margin-top:10px;" vid="41">View Library</button></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <div id="page-services" class="page" vid="42">
+        <header class="main-header" vid="43">
+            <div class="container nav-content" vid="44">
+                <div class="logo" onclick="showPage('page-home')" style="cursor: pointer;" vid="45"><div class="logo-icon" vid="46"></div>AdVantage</div>
+                <nav class="nav-links" vid="47">
+                    <a href="#" class="active" vid="48">Services</a>
+                    <a href="#" onclick="showPage('page-story'); return false;" vid="49">Our Story</a>
+                    <a href="#" onclick="showPage('page-resources'); return false;" vid="50">Resources</a>
+                    <a href="#" onclick="showPage('page-contact'); return false;" vid="51">Contact</a>
+                </nav>
+                <button onclick="showPage('page-contact')" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;" vid="52">Get a Free Audit</button>
+            </div>
+        </header>
+        <section class="res-hero" vid="53">
+            <div class="container" vid="54">
+                <h1 vid="55">Our Services</h1>
+                <p vid="56">Specialized LinkedIn B2B Advertising Solutions.</p>
+            </div>
+        </section>
+    </div>
+
+    
+    <div id="page-story" class="page" vid="57">
+        <header class="main-header" vid="58">
+            <div class="container nav-content" vid="59">
+                <div class="logo" onclick="showPage('page-home')" style="cursor: pointer;" vid="60"><div class="logo-icon" vid="61"></div>AdVantage</div>
+                <nav class="nav-links" vid="62">
+                    <a href="#" onclick="showPage('page-services'); return false;" vid="63">Services</a>
+                    <a href="#" class="active" vid="64">Our Story</a>
+                    <a href="#" onclick="showPage('page-resources'); return false;" vid="65">Resources</a>
+                    <a href="#" onclick="showPage('page-contact'); return false;" vid="66">Contact</a>
+                </nav>
+            </div>
+        </header>
+        <section class="res-hero" vid="67">
+            <div class="container" vid="68">
+                <h1 vid="69">Our Story</h1>
+                <p vid="70">Born from within LinkedIn’s own ecosystem.</p>
+            </div>
+        </section>
+    </div>
+
+    
+    <div id="page-contact" class="page" vid="71">
+        <header class="main-header" vid="72">
+            <div class="container nav-content" vid="73">
+                <div class="logo" onclick="showPage('page-home')" style="cursor: pointer;" vid="74"><div class="logo-icon" vid="75"></div>AdVantage</div>
+                <nav class="nav-links" vid="76">
+                    <a href="#" onclick="showPage('page-services'); return false;" vid="77">Services</a>
+                    <a href="#" onclick="showPage('page-resources'); return false;" vid="78">Resources</a>
+                    <a href="#" class="active" vid="79">Contact</a>
+                </nav>
+            </div>
+        </header>
+        <section class="res-hero" vid="80">
+            <div class="container" vid="81">
+                <h1 vid="82">Contact Us</h1>
+                <p vid="83">Ready to scale your B2B pipeline?</p>
+            </div>
+        </section>
+        <div class="container" style="max-width:600px; padding-bottom:100px;" vid="84">
+            <div class="contact-form-container" vid="85">
+                <form onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');" vid="86">
+                    <div style="margin-bottom:16px;" vid="87">
+                        <label vid="88">Work Email</label>
+                        <input type="email" class="form-input" placeholder="you@company.com" vid="89">
+                    </div>
+                    <button class="btn btn-primary" style="width:100%" vid="90">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="page-resources" class="page" vid="91">
+        <header class="main-header" vid="92">
+            <div class="container nav-content" vid="93">
+                <div class="logo" onclick="showPage('page-home')" style="cursor: pointer;" vid="94">
+                    <div class="logo-icon" vid="95"></div>
+                    AdVantage
+                </div>
+                <nav class="nav-links" vid="96">
+                    <a href="#" onclick="showPage('page-services'); return false;" vid="97">Services</a>
+                    <a href="#" onclick="showPage('page-story'); return false;" vid="98">Our Story</a>
+                    <a href="#" class="active" onclick="showPage('page-resources'); return false;" vid="99">Resources</a>
+                    <a href="#" onclick="showPage('page-contact'); return false;" vid="100">Contact</a>
+                </nav>
+                <button onclick="showPage('page-contact')" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;" vid="101">Get a Free Audit</button>
+            </div>
+        </header>
+
+        <section class="res-hero" vid="102">
+            <div class="container" vid="103">
+                <h1 vid="104">The LinkedIn Ad Playbook</h1>
+                <p vid="105">Expert insights, data-backed reports, and actionable guides.</p>
+            </div>
+        </section>
+
+        <div class="filter-bar" vid="106">
+            <div class="container filter-container" vid="107">
+                <button class="filter-btn active" vid="108">All Resources</button>
+                <button class="filter-btn" vid="109">Guides</button>
+                <button class="filter-btn" vid="110">Playbooks</button>
+                <button class="filter-btn" vid="111">Reports</button>
+                <button class="filter-btn" vid="112">Webinars</button>
+            </div>
+        </div>
+
+        <main class="container" vid="113">
+            <div class="res-grid" vid="114">
+
+                
+                <div class="playbook-full" vid="115">
+                    <div class="playbook-section" style="background: linear-gradient(135deg, #004182 0%, #0A66C2 100%); color: white;" vid="116">
+                        <div style="display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;" vid="117">
+                            <div vid="118">
+                                <span class="bonus-badge" vid="119">Playbook</span>
+                                <h2 style="font-size: 2rem; color: white; margin-bottom: 12px; letter-spacing: -0.03em;" vid="120">Followers Aren't Vanity — They're Your Reach Multiplier</h2>
+                                <p style="opacity: 0.85; max-width: 680px; font-size: 1rem; line-height: 1.7; color: white; margin: 0;" vid="121">Why growing your LinkedIn Company Page following is one of the highest-leverage moves in your B2B marketing strategy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playbook-section" style="background: linear-gradient(135deg, #f0f6ff 0%, #e8f0fb 100%); text-align: center;" vid="122">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px;" vid="123">Read the Full Playbook</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px;" vid="124">Enter your email to access the full guide immediately.</p>
+                        <form onsubmit="event.preventDefault(); if(this.querySelector('input').value){ showPage('page-playbook-1'); }" style="display: flex; gap: 10px; max-width: 440px; margin: 0 auto;" vid="125">
+                            <input type="email" placeholder="Your work email" style="flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: 6px;" required="" vid="126">
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 22px; border-radius: 6px; white-space: nowrap;" vid="127">Get PDF ↓</button>
+                        </form>
+                    </div>
+                </div>
+
+                
+                <div class="playbook-full" vid="128">
+                    <div class="playbook-section" style="background: linear-gradient(135deg, #00366d 0%, #0A66C2 100%); color: white;" vid="129">
+                        <div vid="130">
+                            <span class="bonus-badge" vid="131">Playbook</span>
+                            <h2 style="font-size: 2rem; color: white; margin-bottom: 12px; letter-spacing: -0.03em;" vid="132">How to Actually Optimise a LinkedIn Lead Generation Campaign</h2>
+                            <p style="opacity: 0.85; max-width: 680px; font-size: 1rem; line-height: 1.7; color: white; margin: 0;" vid="133">A practical framework for B2B marketers who want to stop guessing and start generating qualified pipeline.</p>
+                        </div>
+                    </div>
+                    <div class="playbook-section" style="text-align: center; background: var(--surface-light);" vid="134">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px;" vid="135">Read Full Playbook</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px;" vid="136">Unlock the optimization framework PDF.</p>
+                        <form onsubmit="event.preventDefault(); if(this.querySelector('input').value){ showPage('page-playbook-2'); }" style="display: flex; gap: 10px; max-width: 440px; margin: 0 auto;" vid="137">
+                            <input type="email" placeholder="Your work email" style="flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: 6px;" required="" vid="138">
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 22px; border-radius: 6px; white-space: nowrap;" vid="139">Get PDF ↓</button>
+                        </form>
+                    </div>
+                </div>
+
+                
+                <div class="playbook-full" vid="140">
+                    <div class="playbook-section" style="background: linear-gradient(135deg, #004182 0%, #0A66C2 100%); color: white;" vid="141">
+                        <div vid="142">
+                            <span class="bonus-badge" vid="143">Masterclass</span>
+                            <h2 style="font-size: 2rem; color: white; margin-bottom: 12px; letter-spacing: -0.03em;" vid="144">Lead Gen Forms Masterclass</h2>
+                            <p style="opacity: 0.85; max-width: 680px; font-size: 1rem; line-height: 1.7; color: white; margin: 0;" vid="145">Build, test and optimise forms that convert — from question design to CRM integration.</p>
+                        </div>
+                    </div>
+                    <div class="playbook-section" style="text-align: center; background: var(--surface-light);" vid="146">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px;" vid="147">Start Masterclass</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px;" vid="148">Get the 20-minute read PDF now.</p>
+                        <form onsubmit="event.preventDefault(); if(this.querySelector('input').value){ showPage('page-playbook-3'); }" style="display: flex; gap: 10px; max-width: 440px; margin: 0 auto;" vid="149">
+                            <input type="email" placeholder="Your work email" style="flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: 6px;" required="" vid="150">
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 22px; border-radius: 6px; white-space: nowrap;" vid="151">Get PDF ↓</button>
+                        </form>
+                    </div>
+                </div>
+
+                
+                <div class="playbook-full" vid="152">
+                    <div class="playbook-section" style="background: linear-gradient(135deg, #00366d 0%, #0A66C2 100%); color: white;" vid="153">
+                        <div vid="154">
+                            <span class="bonus-badge" vid="155">Webinar</span>
+                            <h2 style="font-size: 2rem; color: white; margin-bottom: 12px; letter-spacing: -0.03em;" vid="156">Scaling LinkedIn Campaigns Without Wasting Budget</h2>
+                            <p style="opacity: 0.85; max-width: 680px; font-size: 1rem; line-height: 1.7; color: white; margin: 0;" vid="157">When to scale, how to scale, and what kills performance when you do.</p>
+                        </div>
+                    </div>
+                    <div class="playbook-section" style="text-align: center; background: var(--surface-light);" vid="158">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 10px;" vid="159">Read Scaling Guide</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px;" vid="160">Access the webinar transcript and tactical guide.</p>
+                        <form onsubmit="event.preventDefault(); if(this.querySelector('input').value){ showPage('page-playbook-4'); }" style="display: flex; gap: 10px; max-width: 440px; margin: 0 auto;" vid="161">
+                            <input type="email" placeholder="Your work email" style="flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: 6px;" required="" vid="162">
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 22px; border-radius: 6px; white-space: nowrap;" vid="163">Get PDF ↓</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    
+    <div id="page-playbook-1" class="page" vid="164">
+        
+        <header class="h-20 flex items-center border-b border-[var(--border)] bg-white/95 backdrop-blur sticky top-0 z-50" vid="165">
+            <div class="container-wide flex justify-between items-center w-full" vid="166">
+                <div class="flex items-center gap-3 text-2xl font-extrabold text-[var(--primary)] cursor-pointer" onclick="showPage('page-home')" vid="167">
+                    <div class="w-8 h-8 bg-[var(--primary)] relative" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);" vid="168"></div>
+                    AdVantage
+                </div>
+                <button onclick="showPage('page-resources')" class="text-sm font-bold text-[var(--primary)] hover:underline flex items-center gap-2" vid="169">
+                    ← Back to Resources
+                </button>
+            </div>
+        </header>
+
+        <section class="gradient-hero pt-20 pb-16 border-b border-[var(--border)]" vid="170">
+            <div class="container text-center" vid="171">
+                <span class="format-badge" vid="172">Strategy Playbook</span>
+                <h1 class="text-4xl md:text-6xl mb-6 tracking-tight text-slate-900" vid="173">Followers Aren't Vanity — They're Your Reach Multiplier</h1>
+                <p class="text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-8 leading-relaxed" vid="174">
+                    Why growing your LinkedIn Company Page following is one of the highest-leverage, lowest-cost moves in your B2B marketing strategy — and exactly how to do it.
+                </p>
+                <div class="flex items-center justify-center gap-8 text-sm font-medium text-[var(--text-secondary)] border-t border-slate-200 pt-8 mt-8 inline-block max-w-md mx-auto" vid="175">
+                    <div class="flex items-center gap-2" vid="176">12 min read</div>
+                    <div class="flex items-center gap-2" vid="177">Updated Oct 2023</div>
+                </div>
+            </div>
+        </section>
+
+        <main class="py-16" vid="178">
+            <article class="container" vid="179">
+                <p class="first-letter:text-6xl first-letter:font-bold first-letter:text-[var(--primary)] first-letter:mr-3 first-letter:float-left" vid="180">
+                    There's a widespread misconception in B2B marketing that follower counts are purely cosmetic. But the data tells a different story: brands with robust followings lower their Customer Acquisition Cost (CAC) over time through organic compounding.
+                </p>
+            </article>
+
+            <div class="py-12" vid="181">
+                <div class="container" vid="182">
+                    <span class="section-label" vid="183">Section 01</span>
+                    <h2 class="text-3xl mb-8" vid="184">Followers Are Not a Vanity Metric</h2>
+                    <div class="feature-grid" vid="185">
+                        <div class="insight-card mb-0" vid="186">
+                            <h4 class="text-lg text-[var(--primary-dark)] mb-3" vid="187">Organic Amplification</h4>
+                            <p class="text-sm mb-0" vid="188">A post shared by a follower is seen by their connections — turning your audience into a distribution network.</p>
+                        </div>
+                        <div class="insight-card mb-0" vid="189">
+                            <h4 class="text-lg text-[var(--primary-dark)] mb-3" vid="190">Algorithm Trust Signal</h4>
+                            <p class="text-sm mb-0" vid="191">More followers = larger initial sample = faster amplification decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-[var(--surface-light)] py-20 border-y border-[var(--border)]" vid="192">
+                <div class="container" vid="193">
+                    <span class="section-label" vid="194">Section 02</span>
+                    <h2 class="text-3xl mb-8" vid="195">Your Follower Count Appears on Every Single Ad</h2>
+                    <p vid="196">Every Sponsored Content ad displays your follower count. It acts as immediate social proof before they even read your headline.</p>
+                    <div class="quote-block" vid="197">
+                        "We A/B tested the exact same creative. The high-follower variant achieved a 34% higher Click-Through Rate with zero change in targeting."
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="bg-[var(--primary-dark)] text-white py-12 text-center" vid="198">
+            <div class="container" vid="199">
+                <p class="text-white/60 text-sm mb-0" vid="200">© 2023 AdVantage Media. Proprietary playbook for educational use only.</p>
+            </div>
+        </footer>
+    </div>
+
+    
+    <div id="page-playbook-2" class="page reader-page" vid="201">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; padding: 24px; z-index: 100;" vid="202">
+            <div class="container" vid="203">
+                <div onclick="showPage('page-resources')" style="cursor: pointer; color: rgba(255,255,255,0.8); font-size: 1.1rem; font-weight:600;" vid="204">
+                    ← Back to Resources
+                </div>
+            </div>
+        </div>
+        <section class="reader-hero" vid="205">
+            <div class="reader-container" vid="206">
+                <span class="bonus-badge" vid="207">Playbook</span>
+                <h1 style="font-size: 3rem; margin-bottom: 24px;" vid="208">How to Actually Optimise a LinkedIn Lead Generation Campaign</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto;" vid="209">A practical framework for B2B marketers.</p>
+            </div>
+        </section>
+        <main class="reader-container" vid="210">
+            <article class="reader-content" vid="211">
+                <div class="reader-body" vid="212">
+                    <div class="reader-section" vid="213">
+                        <h3 vid="214">The Two Metrics That Actually Matter</h3>
+                        <p vid="215">Most metrics are noise. Focus on CTR (Creative Resonance) and FCR (Offer Quality).</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;" vid="216">
+                            <div class="insight-card" style="margin:0;" vid="217"><h4 vid="218">CTR</h4><p vid="219">Benchmark: 0.45% - 0.80%</p></div>
+                            <div class="insight-card" style="margin:0;" vid="220"><h4 vid="221">FCR</h4><p vid="222">Benchmark: 10% - 20%</p></div>
+                        </div>
+                    </div>
+                    <div class="reader-section" vid="223">
+                        <h3 vid="224">Fixing Low CTR</h3>
+                        <p vid="225">1. Weak Hook: Lead with a pain point.<br vid="226">2. Generic Creative: Use specific industry language.<br vid="227">3. Ad Fatigue: Rotate creatives every 3 weeks.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    
+    <div id="page-playbook-3" class="page reader-page" vid="228">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; padding: 24px; z-index: 100;" vid="229">
+            <div class="container" vid="230">
+                <div onclick="showPage('page-resources')" style="cursor: pointer; color: rgba(255,255,255,0.8); font-size: 1.1rem; font-weight:600;" vid="231">
+                    ← Back to Resources
+                </div>
+            </div>
+        </div>
+        <section class="reader-hero" style="background: linear-gradient(135deg, #004182 0%, #002a54 100%);" vid="232">
+            <div class="reader-container" vid="233">
+                <span class="bonus-badge" vid="234">Masterclass</span>
+                <h1 style="font-size: 3rem; margin-bottom: 24px;" vid="235">Lead Gen Forms Masterclass</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto;" vid="236">Build, test and optimise forms that convert.</p>
+            </div>
+        </section>
+        <main class="reader-container" vid="237">
+            <article class="reader-content" vid="238">
+                <div class="reader-body" vid="239">
+                    <div class="reader-section" vid="240">
+                        <h3 vid="241">Designing Your Question Sequence</h3>
+                        <p vid="242"><strong vid="243">The Golden Rule:</strong> Never ask for info LinkedIn already provides.</p>
+                        <ol style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px;" vid="244">
+                            <li vid="245"><strong vid="246">Pre-filled fields first:</strong> Show progress immediately.</li>
+                            <li vid="247"><strong vid="248">Qualifying questions second:</strong> Budget, Timeline.</li>
+                            <li vid="249"><strong vid="250">Open text last:</strong> Use sparingly.</li>
+                        </ol>
+                    </div>
+                    <div class="reader-section" vid="251">
+                        <h3 vid="252">The 5-Minute Rule</h3>
+                        <p vid="253">Leads contacted within 5 minutes are 9x more likely to convert. Automate your CRM sync.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    
+    <div id="page-playbook-4" class="page reader-page" vid="254">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; padding: 24px; z-index: 100;" vid="255">
+            <div class="container" vid="256">
+                <div onclick="showPage('page-resources')" style="cursor: pointer; color: rgba(255,255,255,0.8); font-size: 1.1rem; font-weight:600;" vid="257">
+                    ← Back to Resources
+                </div>
+            </div>
+        </div>
+        <section class="reader-hero" style="background: linear-gradient(135deg, #0A66C2 0%, #0077b5 100%);" vid="258">
+            <div class="reader-container" vid="259">
+                <span class="bonus-badge" vid="260">Webinar</span>
+                <h1 style="font-size: 3rem; margin-bottom: 24px;" vid="261">Scaling LinkedIn Campaigns</h1>
+                <p style="font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto;" vid="262">A tactical guide on audience expansion and budget pacing.</p>
+            </div>
+        </section>
+        <main class="reader-container" vid="263">
+            <article class="reader-content" vid="264">
+                <div class="reader-body" vid="265">
+                    <div class="reader-section" vid="266">
+                        <h3 vid="267">The 4 Signals to Scale</h3>
+                        <p vid="268">1. Stable CPL for 14+ days.<br vid="269">2. A clear creative winner (&gt;50% of conversions).<br vid="270">3. Reach &gt; 200k.<br vid="271">4. Frequency &lt; 3.</p>
+                    </div>
+                    <div class="reader-section" vid="272">
+                        <h3 vid="273">Horizontal vs. Vertical Scaling</h3>
+                        <p vid="274"><strong vid="275">Vertical:</strong> Increasing budget on existing campaign. Max 20% increase every 48 hours.<br vid="276"><strong vid="277">Horizontal:</strong> Duplicating winning campaigns to new audiences. Safer for big budget jumps.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    
+    <script vid="278">
+        function showPage(pageId) {
+            
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            } else {
+                console.error("Page not found:", pageId);
+            }
+        }
+    </script>
+
+</body></html>
