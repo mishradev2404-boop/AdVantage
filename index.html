@@ -3098,6 +3098,7 @@
         }
 
         /* ---- Contact Forms (Home, Services, Contact page) ---- */
+        var CONTACT_REDIRECT_URL = 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1dkXt5AzM0mty3jyZPJgmlfuQWJ9DOJrhsdpuYmuZa1QDrIDaWeYFZ_YGgq76zYaqzDlEPi07W';
         ['home-contact-form', 'services-contact-form', 'main-contact-form'].forEach(function(formId) {
             const form = document.getElementById(formId);
             if (!form) return;
@@ -3112,6 +3113,7 @@
                     const success = document.getElementById(prefix + '-success');
                     if (fields) fields.style.display = 'none';
                     if (success) success.style.display = 'block';
+                    window.location.href = CONTACT_REDIRECT_URL;
                 });
             });
         });
